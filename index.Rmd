@@ -1,0 +1,56 @@
+---
+title       : Presidential Approval Ratings
+subtitle    : 
+author      : asamuelson
+job         : 
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : [mathjax]     # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+---s
+
+## App Introduction
+With the 2016 US presidential race nearing completion, it is interesting to 
+investigate the approval ratings of US presidents in the past. 
+
+This app allows the user to look at presidential approval ratings for the time 
+period 1945-1974.
+
+There are a few NAs in the data, which are handled by the app.
+
+--- .class #id
+
+## Presidential Approval Ratings
+The presidents dataset in the R datasets library contains a time series based on  
+quarterly US presidential approval ratings from the Gallup Organisation. 
+
+According to the R documentation, more information can be found in the following 
+reference: McNeil, D. R. (1977) Interactive Data Analysis. New York: Wiley.
+
+--- .class #id
+
+## Data Summary
+
+A brief summary of the data can be found below. 
+
+```{r, echo=FALSE, eval = TRUE}
+summary(presidents)
+```
+
+```{r, echo=FALSE, eval = TRUE}
+plot(presidents, main="Historical Approval Ratings", ylab = "Approval Rating (%)")
+```
+
+--- .class #id
+
+## App Functionality
+
+The app allows the user to enter a year and a quarter in the UI and calculates 
+the US president's approval rating for that time period. It also plots the mean 
+and selected approval ratings to show the user how the approval rating for the 
+selected time period comp[ares to the historical average.
+
+The back-end calculation in server.R is used to find and return the data for the
+year and quarter from the presidents time series data.
